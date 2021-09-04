@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http:///xqls.github.io">
-  <title>小桥流水</title>
+  <title>makefile | 小桥流水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="makefile1. 什么是makefile？Makefile 可以简单的认为是一个工程文件的编译规则，描述了整个工程的编译和链接等规则。文件命名为”GNUmakefile” 、”makefile” 、”Makefile” 均可以。">
+  <meta name="description" content="makefile">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小桥流水">
+<meta property="og:title" content="makefile">
 <meta property="og:url" content="2021/09/04/makefile/index.html">
 <meta property="og:site_name" content="小桥流水">
-<meta property="og:description" content="makefile1. 什么是makefile？Makefile 可以简单的认为是一个工程文件的编译规则，描述了整个工程的编译和链接等规则。文件命名为”GNUmakefile” 、”makefile” 、”Makefile” 均可以。">
+<meta property="og:description" content="makefile">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-04T08:39:49.887Z">
-<meta property="article:modified_time" content="2021-09-04T09:01:13.536Z">
+<meta property="article:published_time" content="2021-09-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-04T12:52:09.371Z">
 <meta property="article:author" content="ding_lewen">
 <meta property="article:tag" content="每天进步一点点">
 <meta name="twitter:card" content="summary">
@@ -73,13 +73,14 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
             
     			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
+		</nav>
+		<nav>
+			总文章数 4
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -92,6 +93,10 @@
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/signin?next=%2F" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
+			</div>
+			<!--音乐播放插件-->
+			<div style="margin-top:40px;">
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=52 src="//music.163.com/outchain/player?type=2&id=33035988&auto=1&height=32"></iframe>
 			</div>
 		</nav>
 	</header>		
@@ -163,11 +168,38 @@
             <article id="post-makefile" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      makefile
+    </h1>
+  
+
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		
+		<!--显示阅读次数完毕-->
+        
+        <a href="2021/09/04/makefile/" class="archive-article-date">
+  	<time datetime="2021-09-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-04</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1><h1 id="1-什么是makefile？"><a href="#1-什么是makefile？" class="headerlink" title="1. 什么是makefile？"></a>1. 什么是makefile？</h1><p>Makefile 可以简单的认为是一个工程文件的编译规则，描述了整个工程的编译和链接等规则。<br>文件命名为”GNUmakefile” 、”makefile” 、”Makefile” 均可以。</p>
+        <p>makefile</p>
 <span id="more"></span>
-<p>规则主要是两个部分组成，分别是依赖的关系和执行的命令：</p>
+
+<h1 id="1-什么是makefile？"><a href="#1-什么是makefile？" class="headerlink" title="1. 什么是makefile？"></a>1. 什么是makefile？</h1><p>Makefile 可以简单的认为是一个工程文件的编译规则，描述了整个工程的编译和链接等规则。<br>文件命名为”GNUmakefile” 、”makefile” 、”Makefile” 均可以。<br>规则主要是两个部分组成，分别是依赖的关系和执行的命令：</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">targets:prerequisites</span><br><span class="line">	command</span><br><span class="line">or</span><br><span class="line"><span class="attr">targets</span> : prerequisites; command</span><br><span class="line">	command</span><br></pre></td></tr></table></figure>
 <p>targets：规则的目标，可以是 Object File（一般称它为中间文件），也可以是可执行文件，还可以是一个标签；<br>prerequisites：是我们的依赖文件，要生成 targets 需要的文件或者是目标。可以是多个，也可以是没有；<br>command：make 需要执行的命令（任意的 shell 命令）。可以有多条命令，每一条命令占一行。<br>注:我们的目标和依赖文件之间要使用冒号分隔开，命令的开始一定要使用Tab键。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">test:test.c</span><br><span class="line">	gcc -o test test.c</span><br></pre></td></tr></table></figure>
@@ -310,14 +342,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          c/c++面经
         
       </div>
     </a>
   
   
-    <a href="2021/09/04/socket/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="2021/09/03/socket/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络通信</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -367,7 +399,8 @@
     </div>
   </div>
 </footer>
-
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -402,8 +435,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
-      
-      
     
       
       
@@ -415,15 +446,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -450,26 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
             缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
           </p>
           <li class="search-li" q-repeat="items" q-show="isShow">
             <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
@@ -487,43 +496,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">/</div>
+  	  		<div class="aboutme-wrap">
+				<div style="display:;">
+					<script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+					<p style="margin:0 20px 0 20px;">
+						<span id="lwlhitokoto">
+							<script>
+								lwlhitokoto();
+							</script>
+						</span>
+					</p>
+					<p id="js-aboutme" style="margin:0 20px 0 20px;">原谅我这一生不羁放纵爱自由</P>
+				</div>
+			</div>
   	  	
     	</section>
     
@@ -596,6 +585,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     </div>
 
 </div>
+	<!--动态线条背景-->
+	
+		<script type="text/javascript" color="255, 235, 59" opacity="0.8" 
+			zIndex="-1" count="99" 
+			src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+		</script>
+	
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","taMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":100,"height":150,"hOffset":80,"vOffset":-50,"mobile":{"show":true}},"log":false,"tagMode":false});</script></body>
 </html>
