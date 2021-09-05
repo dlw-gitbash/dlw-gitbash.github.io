@@ -79,9 +79,6 @@
     			
             
 		</nav>
-		<nav>
-			总文章数 4
-		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -94,12 +91,6 @@
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/signin?next=%2F" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
-			<!--音乐播放插件-->
-			
-				<div style="position:absolute; bottom:120px left:auto; width:85%">
-					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=33035988&auto=1&height=32"></iframe>
-				</div>
-			
 		</nav>
 	</header>		
 </div>
@@ -107,7 +98,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -309,8 +300,7 @@
     </div>
   </div>
 </footer>
-<!--页面点击小红心-->
-<script type="text/javascript" src="/love.js"></script>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -386,6 +376,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           </ul>
         </div>
         <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
           <li class="search-li" q-repeat="items" q-show="isShow">
             <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
             <p class="search-time">
@@ -406,19 +420,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap">
-				<div style="display:;">
-					<script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
-					<p style="margin:0 20px 0 20px;">
-						<span id="lwlhitokoto">
-							<script>
-								lwlhitokoto();
-							</script>
-						</span>
-					</p>
-					<p id="js-aboutme" style="margin:0 20px 0 20px;">原谅我这一生不羁放纵爱自由</P>
-				</div>
-			</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">原谅我这一生不羁放纵爱自由</div>
   	  	
     	</section>
     
@@ -491,13 +493,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     </div>
 
 </div>
-	<!--动态线条背景-->
-	
-		<script type="text/javascript" color="255, 235, 59" opacity="0.8" 
-			zIndex="-1" count="99" 
-			src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-		</script>
-	
   </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","taMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":100,"height":150,"hOffset":80,"vOffset":-50,"mobile":{"show":true}},"log":false,"tagMode":false});</script></body>
 </html>
